@@ -6,173 +6,162 @@
 <title>ProfeSmart | Trabajo docente inteligente</title>
 <style>
 :root{
-  --primary:#087a52;
-  --primary-dark:#075b40;
-  --primary-light:#e8f6ef;
-  --accent:#2ca56d;
-  --blue:#2b8ccf;
-  --orange:#f59e0b;
-  --purple:#8b5cf6;
-  --bg:#f4f8f6;
-  --surface:#ffffff;
-  --text:#17312a;
-  --muted:#66776f;
-  --border:#dfe9e4;
+  --primary:#087a52;--primary2:#0f5b40;--lime:#d7ef4b;--accent:#2ca56d;
+  --bg:#f4f8f6;--card:#fff;--text:#17312a;--muted:#667f76;--line:#dce8e2;
+  --danger:#c84d4d;--warn:#d98b1d;--blue:#2b8ccf;--purple:#855fc6;
   --shadow:0 10px 30px rgba(22,56,43,.08);
 }
-*{box-sizing:border-box}
-body{margin:0;font-family:Inter,Arial,sans-serif;background:var(--bg);color:var(--text)}
-.app{display:flex;min-height:100vh}
-.sidebar{width:270px;background:#fff;border-right:1px solid var(--border);padding:18px 14px;position:fixed;height:100vh;overflow:auto}
-.brand{display:flex;align-items:center;gap:11px;padding:4px 10px 20px}
-.logo{width:54px;height:54px;flex:0 0 54px}
-.brand-name{font-size:28px;font-weight:800;letter-spacing:-1px}.brand-name span{color:var(--primary)}
-.brand small{display:block;color:var(--primary-dark);font-size:12px;margin-top:2px}
-.section-label{font-size:11px;color:#82918b;font-weight:800;margin:20px 10px 8px;text-transform:uppercase}
-.nav button{width:100%;border:0;background:transparent;color:#42534d;text-align:left;padding:12px 14px;border-radius:12px;margin:2px 0;font-size:15px;display:flex;gap:12px;align-items:center}
-.nav button:hover,.nav button.active{background:var(--primary);color:white;box-shadow:0 6px 16px rgba(8,122,82,.18)}
-.nav .icon{font-size:19px;width:20px;text-align:center}
-.side-bottom{margin-top:25px;border-radius:18px;min-height:190px;padding:18px;color:white;background:linear-gradient(160deg,#0a6c4a,#0b3e31);position:relative;overflow:hidden}
-.side-bottom:after{content:"🌱";font-size:95px;position:absolute;right:-10px;bottom:-28px;opacity:.45}
-.side-bottom b{font-size:16px;position:relative;z-index:1}.side-bottom p{font-size:13px;line-height:1.45;position:relative;z-index:1}
-main{margin-left:270px;width:calc(100% - 270px);padding:24px 30px}
-.topbar{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-bottom:22px}
-.search{flex:1;max-width:620px;background:#fff;border:1px solid var(--border);border-radius:28px;padding:13px 18px;color:#7b8a84}
-.profile{display:flex;align-items:center;gap:12px}.avatar{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#2ca56d,#b6e3c9);display:grid;place-items:center;font-size:21px}
-.profile strong{font-size:14px}.profile span{display:block;font-size:12px;color:var(--muted);margin-top:3px}
-.herohead{display:flex;justify-content:space-between;align-items:start;gap:20px}
-h1{font-size:31px;margin:0;letter-spacing:-.8px}.subtitle{color:var(--muted);margin:7px 0 18px;font-size:17px}
-.date{color:var(--muted);font-size:14px;padding-top:8px}
-.layout{display:grid;grid-template-columns:minmax(0,1fr) 370px;gap:22px}
-.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}
-.metric{background:#fff;border:1px solid var(--border);border-radius:17px;padding:16px;box-shadow:var(--shadow)}
-.metric .row{display:flex;align-items:center;gap:11px}.metric-icon{width:50px;height:50px;border-radius:13px;display:grid;place-items:center;font-size:25px;background:var(--primary-light)}
-.metric b{display:block;font-size:27px;margin-top:3px}.metric small{color:var(--muted)}
-.banner{margin-top:14px;border-radius:20px;min-height:198px;padding:28px 34px;color:white;overflow:hidden;position:relative;background:linear-gradient(105deg,rgba(4,67,44,.95),rgba(14,103,63,.7)),linear-gradient(135deg,#155a3e,#5fae72)}
-.banner:after{content:"🌍🌱";font-size:105px;position:absolute;right:35px;bottom:-16px;letter-spacing:-40px;filter:drop-shadow(0 12px 15px rgba(0,0,0,.2))}
-.banner h2{font-size:33px;line-height:1.05;margin:0 0 9px;max-width:500px}.banner p{margin:0 0 16px;opacity:.92}.btn{border:0;border-radius:11px;padding:11px 17px;background:var(--primary);color:white;font-weight:700}.btn.light{background:white;color:var(--primary-dark)}
-.card{background:#fff;border:1px solid var(--border);border-radius:18px;padding:18px;box-shadow:var(--shadow)}
-.card h3{margin:0;font-size:20px}.section-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}.link{color:var(--primary);font-size:14px;font-weight:700}
-.quick{margin-top:14px}.quick-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:11px}.quick-item{border:1px solid var(--border);border-radius:14px;padding:16px 9px;text-align:center;font-weight:700;font-size:13px;background:#fff}.quick-item .qi{font-size:27px;margin-bottom:7px}
-.courses{margin-top:14px}.course-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.course{border:1px solid var(--border);border-radius:14px;overflow:hidden;background:#fff}.course-img{height:78px;background:linear-gradient(135deg,#0b6980,#7dd3fc);display:grid;place-items:center;font-size:35px}.course:nth-child(2) .course-img{background:linear-gradient(135deg,#275b27,#9ac66d)}.course:nth-child(3) .course-img{background:linear-gradient(135deg,#0b556d,#63b8b0)}.course:nth-child(4) .course-img{background:linear-gradient(135deg,#6b3c24,#e2a76f)}
-.course-body{padding:10px}.course-body b{display:block}.course-body small{color:var(--muted)}
-.right{display:flex;flex-direction:column;gap:14px}.calendar .month{display:flex;justify-content:space-between;font-weight:700;margin:14px 0}.days{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;text-align:center;font-size:12px;color:var(--muted)}.days span{padding:7px 2px}.today{background:var(--primary)!important;color:white!important;border-radius:50%}
-.schedule{margin-top:14px;border-top:1px solid var(--border);padding-top:12px;font-size:13px}.schedule div{padding:6px 0;border-left:3px solid var(--accent);padding-left:10px}.schedule time{color:var(--primary-dark);font-weight:700;margin-right:9px}
-.ai{background:linear-gradient(135deg,#edf9f2,#f7fffb)}.ai-top{display:flex;gap:12px;align-items:center}.bot{font-size:33px}.ai input{width:100%;border:1px solid var(--border);border-radius:11px;padding:13px;margin:14px 0 8px}.chips{display:flex;gap:7px;flex-wrap:wrap}.chip{font-size:12px;border:1px solid #cfe1d8;background:white;border-radius:18px;padding:7px 10px;color:#456057}
-.reminders div{padding:9px 0;border-bottom:1px solid #edf1ef;font-size:13px}.dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:#2b8ccf;margin-right:9px}.orange{background:var(--orange)}.purple{background:var(--purple)}
-.footer{text-align:center;color:var(--muted);font-size:13px;padding:25px 0 5px}
-@media(max-width:1200px){.metrics{grid-template-columns:repeat(2,1fr)}.quick-grid{grid-template-columns:repeat(3,1fr)}.course-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:900px){.sidebar{width:78px}.brand-name,.brand small,.nav button span,.section-label,.side-bottom{display:none}.brand{padding:5px}.nav button{justify-content:center;padding:12px 5px}.nav .icon{font-size:20px}main{margin-left:78px;width:calc(100% - 78px);padding:18px}.layout{grid-template-columns:1fr}.right{display:grid;grid-template-columns:1fr 1fr}.right .card:last-child{grid-column:1/-1}}
-@media(max-width:650px){.topbar{display:block}.profile{margin-top:12px}.herohead{display:block}.date{margin-bottom:12px}.metrics,.quick-grid,.course-grid,.right{grid-template-columns:1fr}.right .card:last-child{grid-column:auto}.banner h2{font-size:27px}.banner:after{opacity:.35;right:15px}.search{width:100%}}
+*{box-sizing:border-box} body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--text)}
+button,input,select,textarea{font:inherit}.app{display:flex;min-height:100vh}
+.sidebar{width:270px;background:linear-gradient(180deg,#0b4735,#102f29);color:#fff;padding:22px 14px;position:fixed;top:0;bottom:0;overflow:auto}
+.logo{display:flex;align-items:center;gap:10px;font-size:25px;font-weight:800;margin:0 8px 8px}.applebrain{width:43px;height:43px;border-radius:48% 48% 45% 45%;background:linear-gradient(135deg,#d7ef4b,#75b843);display:grid;place-items:center;color:#0b4735;font-size:24px;box-shadow:inset 0 0 0 4px rgba(0,0,0,.08)}.tag{font-size:13px;color:#b8d4c9;margin:0 10px 25px}
+.group{font-size:11px;color:#91b3a5;font-weight:800;margin:22px 10px 7px;letter-spacing:.08em}.navbtn{width:100%;border:0;background:transparent;color:#dbe9e4;padding:13px 14px;border-radius:12px;text-align:left;cursor:pointer;font-weight:650;font-size:15px;margin:2px 0}.navbtn:hover,.navbtn.active{background:rgba(255,255,255,.12);color:#fff}.sidecard{margin:25px 2px 5px;padding:18px;border-radius:20px;background:linear-gradient(145deg,#16654e,#0c3d31);box-shadow:var(--shadow)}.sidecard h3{margin:0 0 8px;font-size:16px}.sidecard p{margin:0;color:#c6ddd5;font-size:13px;line-height:1.45}
+main{margin-left:270px;width:calc(100% - 270px);padding:28px;min-height:100vh}.topbar{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:24px}.topbar h1{margin:0;font-size:29px}.sub{color:var(--muted);margin:5px 0 0}.badge{background:#e5f5ec;color:var(--primary2);padding:8px 12px;border-radius:999px;font-size:13px;font-weight:800}
+.page{display:none}.page.active{display:block}.hero{background:linear-gradient(120deg,#12533e,#1f7658);color:#fff;border-radius:24px;padding:28px;min-height:170px;display:flex;align-items:center;justify-content:space-between;box-shadow:var(--shadow)}.hero h2{font-size:31px;margin:0 0 7px}.hero p{margin:0;color:#d4e9e0;font-size:17px}.heroart{font-size:75px}
+.grid{display:grid;gap:16px}.g4{grid-template-columns:repeat(4,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:repeat(2,1fr)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:20px;box-shadow:var(--shadow)}.metric .num{font-size:30px;font-weight:800;margin:8px 0}.metric .label{color:var(--muted);font-size:14px}.sectionhead{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:27px 0 14px}.sectionhead h2{margin:0;font-size:23px}.btn{border:0;border-radius:11px;padding:11px 15px;font-weight:750;cursor:pointer;background:#eaf3ef;color:var(--text)}.btn.primary{background:var(--primary);color:#fff}.btn.danger{background:#ffe8e8;color:#a43a3a}.btn.small{padding:7px 10px;font-size:13px}.btn:hover{filter:brightness(.97)}
+.quick{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}.quick button{border:1px solid var(--line);background:#fff;border-radius:17px;padding:18px 10px;cursor:pointer;color:var(--text);font-weight:700}.quick span{display:block;font-size:28px;margin-bottom:7px}
+.course{padding:0;overflow:hidden}.courseTop{height:90px;padding:18px;font-size:35px;background:linear-gradient(135deg,#4f9e83,#d4efdf)}.course:nth-child(2) .courseTop{background:linear-gradient(135deg,#467f3e,#b9d995)}.course:nth-child(3) .courseTop{background:linear-gradient(135deg,#3c8688,#a7dbd8)}.course:nth-child(4) .courseTop{background:linear-gradient(135deg,#9a663d,#e8c29c)}.courseBody{padding:16px}.courseBody b{font-size:18px}.courseBody p{margin:6px 0 0;color:var(--muted)}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:15px}.toolbar input,.toolbar select,.form input,.form select,.form textarea{border:1px solid var(--line);border-radius:10px;padding:10px;background:#fff;color:var(--text)}.toolbar input{min-width:220px}.tablewrap{overflow:auto}.table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:15px;overflow:hidden}.table th,.table td{padding:12px;border-bottom:1px solid var(--line);text-align:left;font-size:14px}.table th{background:#f5faf7;color:#486057}.pill{padding:5px 9px;border-radius:999px;font-size:12px;font-weight:800;display:inline-block}.green{background:#e5f7eb;color:#24744b}.red{background:#ffe8e8;color:#b23d3d}.orange{background:#fff1da;color:#a66a13}.blue{background:#e6f2fb;color:#236b9b}.purple{background:#f0eafd;color:#6e4ab0}
+.modal{display:none;position:fixed;inset:0;background:rgba(15,32,27,.5);z-index:50;padding:20px;align-items:center;justify-content:center}.modal.show{display:flex}.modalbox{background:#fff;width:min(720px,96vw);max-height:92vh;overflow:auto;border-radius:22px;padding:24px;box-shadow:0 30px 80px rgba(0,0,0,.25)}.modalbox h2{margin-top:0}.form{display:grid;gap:12px}.form label{font-size:13px;font-weight:750;color:#466157}.form .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}.form textarea{min-height:90px}.notice{padding:13px;border-radius:12px;background:#eef8f2;border-left:4px solid var(--primary);margin:10px 0;color:#36574b}.warning{background:#fff7e8;border-left-color:var(--warn)}.dangerbox{background:#fff0f0;border-left-color:var(--danger)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:15px}.tab{border:1px solid var(--line);background:#fff;padding:9px 12px;border-radius:999px;cursor:pointer}.tab.active{background:var(--primary);color:#fff;border-color:var(--primary)}
+.progress{height:9px;background:#edf2ef;border-radius:999px;overflow:hidden}.progress div{height:100%;background:var(--primary)}.ai{background:linear-gradient(135deg,#173b31,#245d49);color:#fff}.ai input{width:100%;padding:14px;border-radius:12px;border:0;margin-top:10px}.empty{padding:35px;text-align:center;color:var(--muted)}
+.calendargrid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}.day{padding:8px;text-align:center;border-radius:9px;background:#f3f7f5;font-size:13px}.day.today{background:var(--primary);color:#fff}
+.footer{margin:35px 0 5px;text-align:center;color:var(--muted);font-size:13px}
+@media(max-width:1050px){.g4{grid-template-columns:repeat(2,1fr)}.quick{grid-template-columns:repeat(3,1fr)}}@media(max-width:760px){.sidebar{position:static;width:100%;height:auto}.app{display:block}main{margin-left:0;width:100%;padding:18px}.g4,.g3,.g2{grid-template-columns:1fr}.quick{grid-template-columns:repeat(2,1fr)}.hero{display:block}.heroart{display:none}.form .row{grid-template-columns:1fr}.sidebar{padding-bottom:10px}.sidecard{display:none}}
 </style>
 </head>
 <body>
 <div class="app">
 <aside class="sidebar">
-  <div class="brand">
-    <svg class="logo" viewBox="0 0 64 64" aria-label="Logo cerebro manzana">
-      <defs><linearGradient id="g" x1="0" x2="1"><stop stop-color="#087a52"/><stop offset="1" stop-color="#2ca56d"/></linearGradient></defs>
-      <path d="M32 13c-9-7-22 1-22 15 0 14 9 26 22 26s22-12 22-26C54 14 41 6 32 13Z" fill="url(#g)"/>
-      <path d="M32 11c1-5 5-8 10-9-1 6-5 10-10 11M33 11C27 6 24 2 24 2" fill="none" stroke="#087a52" stroke-width="3" stroke-linecap="round"/>
-      <path d="M31 18c-5-4-11 1-9 6-5 2-5 9 0 11-2 5 3 10 8 7v7M33 18c5-4 11 1 9 6 5 2 5 9 0 11 2 5-3 10-8 7v7M32 18v31M22 28h7M35 28h7M21 36h8M35 36h8" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-    <div><div class="brand-name">Profe<span>Smart</span></div><small>Trabajo docente inteligente</small></div>
-  </div>
-  <div class="section-label">Principal</div>
-  <div class="nav">
-    <button class="active"><span class="icon">🏠</span><span>Inicio</span></button>
-    <button><span class="icon">👥</span><span>Mis cursos</span></button>
-    <button><span class="icon">📅</span><span>Planificación</span></button>
-    <button><span class="icon">📚</span><span>Secuencias didácticas</span></button>
-  </div>
-  <div class="section-label">Gestión académica</div>
-  <div class="nav">
-    <button><span class="icon">☑️</span><span>Asistencia</span></button>
-    <button><span class="icon">📝</span><span>Evaluación</span></button>
-    <button><span class="icon">📊</span><span>Calificaciones</span></button>
-    <button><span class="icon">🔄</span><span>Recuperación</span></button>
-    <button><span class="icon">📄</span><span>Boletines</span></button>
-  </div>
-  <div class="section-label">Inteligencia</div>
-  <div class="nav">
-    <button><span class="icon">🤖</span><span>ProfeSmart IA</span></button>
-    <button><span class="icon">📋</span><span>Seguimiento</span></button>
-  </div>
-  <div class="side-bottom"><b>Docentes que inspiran un futuro mejor</b><p>Organiza, evalúa y transforma tu trabajo docente.</p></div>
+  <div class="logo"><div class="applebrain">🧠</div> ProfeSmart</div>
+  <div class="tag">Trabajo docente inteligente</div>
+  <div class="group">PRINCIPAL</div>
+  <button class="navbtn active" data-page="inicio">🏠 Inicio</button>
+  <button class="navbtn" data-page="cursos">📚 Mis cursos</button>
+  <div class="group">LOS 9 PASOS</div>
+  <button class="navbtn" data-page="paso1">1️⃣ Configuración</button>
+  <button class="navbtn" data-page="paso2">2️⃣ Cursos</button>
+  <button class="navbtn" data-page="paso3">3️⃣ Estudiantes</button>
+  <button class="navbtn" data-page="paso4">4️⃣ Secuencias</button>
+  <button class="navbtn" data-page="paso5">5️⃣ Planificación</button>
+  <button class="navbtn" data-page="paso6">6️⃣ Asistencia</button>
+  <button class="navbtn" data-page="paso7">7️⃣ Evaluación</button>
+  <button class="navbtn" data-page="paso8">8️⃣ Calificaciones</button>
+  <button class="navbtn" data-page="paso9">9️⃣ Recuperación</button>
+  <div class="group">INTELIGENCIA</div>
+  <button class="navbtn" data-page="ia">🤖 ProfeSmart IA</button>
+  <button class="navbtn" data-page="seguimiento">📋 Seguimiento</button>
+  <div class="sidecard"><h3>Docentes que inspiran un futuro mejor</h3><p>Organiza, planifica, evalúa y transforma tu trabajo docente.</p></div>
 </aside>
 
 <main>
-  <div class="topbar">
-    <div class="search">🔎 &nbsp; Buscar estudiantes, actividades, secuencias, recursos...</div>
-    <div class="profile"><div class="avatar">👨‍🏫</div><div><strong>Prof. Andrés</strong><span>Docente de Ciencias Naturales</span></div></div>
-  </div>
+<div class="topbar"><div><h1 id="pageTitle">¡Bienvenido a ProfeSmart! 👋</h1><p class="sub" id="pageSub">La plataforma para optimizar el trabajo docente en Ciencias Naturales.</p></div><div class="badge">🟢 Datos guardados localmente</div></div>
 
-  <div class="herohead">
-    <div><h1>¡Bienvenido, Prof. Andrés! 👋</h1><div class="subtitle">Juntos hacemos de la ciencia una experiencia para la vida.</div></div>
-    <div class="date">📅 Sábado, 13 de septiembre de 2026</div>
-  </div>
+<section class="page active" id="inicio">
+ <div class="hero"><div><h2>Ciencia hoy,<br>soluciones mañana</h2><p>Explora · Descubre · Enseña · Transforma</p><br><button class="btn" onclick="go('paso5')">Seguimos aprendiendo →</button></div><div class="heroart">🌍🌱</div></div>
+ <div class="sectionhead"><h2>⚡ Acciones rápidas</h2><button class="btn small" onclick="go('paso1')">⚙ Personalizar</button></div>
+ <div class="quick"><button onclick="openActivity()"><span>➕</span>Crear actividad</button><button onclick="go('paso5')"><span>📅</span>Planificar clase</button><button onclick="go('paso6')"><span>👥</span>Registrar asistencia</button><button onclick="go('paso7')"><span>📝</span>Generar evaluación</button><button onclick="go('boletines')"><span>📄</span>Crear boletín</button></div>
+ <div class="sectionhead"><h2>📚 Mis cursos</h2><button class="btn small" onclick="go('cursos')">Ver todos →</button></div>
+ <div class="grid g3" id="homeCourses"></div>
+ <div class="grid g2" style="margin-top:18px">
+  <div class="card ai"><h2>🤖 ProfeSmart IA</h2><p>Tu asistente para planificar, crear actividades, instrumentos, refuerzos y planes de mejora.</p><input id="aiQuick" placeholder="¿En qué puedo ayudarte hoy?" onkeydown="if(event.key==='Enter')askAI('aiQuick','aiResult')"><div id="aiResult" style="margin-top:12px"></div></div>
+  <div class="card"><div class="sectionhead" style="margin:0 0 10px"><h2>🔔 Recordatorios</h2><button class="btn small" onclick="addReminder()">Añadir</button></div><div id="reminders"></div></div>
+ </div>
+</section>
 
-  <div class="layout">
-    <div>
-      <div class="metrics">
-        <div class="metric"><div class="row"><div class="metric-icon">📖</div><div><small>Cursos activos</small><b>6</b><small>Ver cursos →</small></div></div></div>
-        <div class="metric"><div class="row"><div class="metric-icon">👥</div><div><small>Estudiantes</small><b>0</b><small>Próximamente</small></div></div></div>
-        <div class="metric"><div class="row"><div class="metric-icon">📋</div><div><small>Actividades</small><b>0</b><small>Este mes</small></div></div></div>
-        <div class="metric"><div class="row"><div class="metric-icon">📌</div><div><small>Pendientes</small><b>0</b><small>Ver tareas →</small></div></div></div>
-      </div>
+<section class="page" id="cursos"><div class="sectionhead"><h2>📚 Mis cursos</h2><button class="btn primary" onclick="openCourse()">+ Crear curso</button></div><div class="notice">Configura los grados desde 1.º hasta 6.º y sus secciones. Cada curso alimentará automáticamente asistencia, evaluación, calificaciones y recuperación.</div><div class="grid g3" id="courseList"></div></section>
 
-      <div class="banner">
-        <h2>Ciencia hoy,<br>soluciones mañana</h2>
-        <p>Explora · Descubre · Enseña · Transforma</p>
-        <button class="btn light">Seguimos aprendiendo →</button>
-      </div>
+<section class="page" id="paso1"><div class="sectionhead"><h2>1. Configuración inicial</h2><button class="btn primary" onclick="saveConfig()">Guardar configuración</button></div><div class="card form"><div class="row"><div><label>Nombre del docente</label><input id="teacherName" placeholder="Ej.: Andrés Carrión"></div><div><label>Centro educativo</label><input id="schoolName" placeholder="Nombre del centro"></div></div><div class="row"><div><label>Área</label><select id="area"><option>Ciencias Naturales</option></select></div><div><label>Año escolar</label><input id="schoolYear" value="2026-2027"></div></div><label>Cantidad de períodos</label><select id="periods" onchange="saveConfig()"><option value="4">4 períodos</option></select><div class="notice">ProfeSmart está diseñado para automatizar el trabajo a partir del currículo, las secuencias y el registro. El docente interviene principalmente para crear actividades e instrumentos adicionales.</div></div></section>
 
-      <div class="card quick">
-        <div class="section-title"><h3>⚡ Acciones rápidas</h3><span class="link">⚙ Personalizar</span></div>
-        <div class="quick-grid">
-          <div class="quick-item"><div class="qi">📄➕</div>Crear actividad</div>
-          <div class="quick-item"><div class="qi">🗓️</div>Planificar clase</div>
-          <div class="quick-item"><div class="qi">🧑‍🤝‍🧑</div>Registrar asistencia</div>
-          <div class="quick-item"><div class="qi">📝</div>Generar evaluación</div>
-          <div class="quick-item"><div class="qi">📃</div>Crear boletín</div>
-        </div>
-      </div>
+<section class="page" id="paso2"><div class="sectionhead"><h2>2. Configuración de cursos</h2><button class="btn primary" onclick="openCourse()">+ Añadir curso</button></div><div class="card"><h3>Grados disponibles</h3><div class="tabs" id="gradeTabs"></div><div class="notice">Selecciona únicamente los grados y secciones que impartes. Puedes crear varios grupos por grado.</div></div><div class="grid g3" id="courseConfigList" style="margin-top:16px"></div></section>
 
-      <div class="card courses">
-        <div class="section-title"><h3>📚 Mis cursos</h3><span class="link">Ver todos →</span></div>
-        <div class="course-grid">
-          <div class="course"><div class="course-img">🌊</div><div class="course-body"><b>2.º A</b><small>Ciencias Naturales · 0 estudiantes</small></div></div>
-          <div class="course"><div class="course-img">🦋</div><div class="course-body"><b>2.º B</b><small>Ciencias Naturales · 0 estudiantes</small></div></div>
-          <div class="course"><div class="course-img">🏞️</div><div class="course-body"><b>3.º A</b><small>Ciencias Naturales · 0 estudiantes</small></div></div>
-          <div class="course"><div class="course-img">🌋</div><div class="course-body"><b>3.º B</b><small>Ciencias Naturales · 0 estudiantes</small></div></div>
-        </div>
-      </div>
-    </div>
+<section class="page" id="paso3"><div class="sectionhead"><h2>3. Estudiantes</h2><div><button class="btn" onclick="addSampleStudents()">Cargar ejemplo</button> <button class="btn primary" onclick="openStudent()">+ Añadir estudiante</button></div></div><div class="toolbar"><select id="studentCourse" onchange="renderStudents()"></select><input id="studentSearch" placeholder="Buscar estudiante..." oninput="renderStudents()"></div><div class="card tablewrap"><table class="table"><thead><tr><th>#</th><th>Estudiante</th><th>Curso</th><th>Estado</th><th></th></tr></thead><tbody id="studentRows"></tbody></table></div></section>
 
-    <div class="right">
-      <div class="card calendar">
-        <div class="section-title"><h3>🗓️ Mi calendario</h3><span class="link">Ver todo</span></div>
-        <div class="month"><span>‹</span><span>Septiembre 2026</span><span>›</span></div>
-        <div class="days"><span>Do</span><span>Lu</span><span>Ma</span><span>Mi</span><span>Ju</span><span>Vi</span><span>Sá</span><span></span><span></span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span class="today">13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span></div>
-        <div class="schedule"><div><time>10:00</time>Clase de Ciencias Naturales</div><div><time>12:00</time>Planificación docente</div><div><time>15:00</time>Revisión de evaluación</div></div>
-      </div>
+<section class="page" id="paso4"><div class="sectionhead"><h2>4. Secuencias didácticas</h2><button class="btn primary" onclick="openSequence()">+ Nueva secuencia</button></div><div class="notice">La secuencia será la fuente principal de automatización: actividades, competencias específicas, indicadores de logro y componentes curriculares pueden convertirse en la estructura evaluativa de ProfeSmart.</div><div id="sequenceList" class="grid g2"></div></section>
 
-      <div class="card ai">
-        <div class="ai-top"><div class="bot">🤖</div><div><h3>ProfeSmart IA</h3><small>Tu asistente para planificar, crear y mejorar.</small></div></div>
-        <input placeholder="¿En qué puedo ayudarte hoy?">
-        <div class="chips"><span class="chip">Crear una secuencia didáctica</span><span class="chip">Generar una evaluación</span><span class="chip">Sugerir actividades lúdicas</span><span class="chip">Diseñar un plan de recuperación</span></div>
-      </div>
+<section class="page" id="paso5"><div class="sectionhead"><h2>5. Planificación por períodos</h2><button class="btn primary" onclick="openPlan()">+ Planificar secuencia</button></div><div class="card"><div class="row form"><div><label>Período activo</label><select id="periodSelect" onchange="renderPlans()"><option>Período 1</option><option>Período 2</option><option>Período 3</option><option>Período 4</option></select></div><div><label>Curso</label><select id="planCourse" onchange="renderPlans()"></select></div></div><div class="notice">Aquí el docente decide cuántas secuencias trabajará en cada período, las fechas, la cantidad de actividades y la distribución temporal.</div></div><div id="planList" style="margin-top:16px"></div></section>
 
-      <div class="card reminders">
-        <div class="section-title"><h3>🔔 Recordatorios</h3><span class="link">Ver todos →</span></div>
-        <div><span class="dot"></span>Revisar calificaciones</div>
-        <div><span class="dot orange"></span>Subir actividades del tema</div>
-        <div><span class="dot purple"></span>Enviar informe de seguimiento</div>
-      </div>
-    </div>
-  </div>
-  <div class="footer">🌱 “Enseñar ciencia es sembrar futuro” · ProfeSmart</div>
+<section class="page" id="paso6"><div class="sectionhead"><h2>6. Asistencia inteligente</h2><div><button class="btn" onclick="markAllPresent()">✓ Todos presentes</button> <button class="btn primary" onclick="saveAttendance()">Guardar asistencia</button></div></div><div class="toolbar"><select id="attendanceCourse" onchange="renderAttendance()"></select><input type="date" id="attendanceDate" onchange="renderAttendance()"></div><div class="notice">Todos los estudiantes aparecen <b>presentes por defecto</b>. Si un estudiante acumula <b>3 faltas consecutivas</b>, ProfeSmart genera una alerta y una carta para la Unidad de Orientación y Psicología.</div><div class="card tablewrap"><table class="table"><thead><tr><th>Estudiante</th><th>Presente</th><th>Ausente</th><th>Tardanza</th><th>Justificada</th><th>% asistencia</th></tr></thead><tbody id="attendanceRows"></tbody></table></div><div id="attendanceAlerts"></div></section>
+
+<section class="page" id="paso7"><div class="sectionhead"><h2>7. Evaluación e instrumentos</h2><button class="btn primary" onclick="openActivity()">+ Crear actividad / instrumento</button></div><div class="notice"><b>Regla central:</b> una actividad puede aportar a varios grupos de competencias. El instrumento distribuye los puntos según competencias específicas, indicadores de logro y descriptores; ProfeSmart redirige los puntos al grupo correcto.</div><div class="card"><h3>Los 4 grupos de competencias</h3><div class="grid g4" id="competencySummary"></div></div><div class="card tablewrap" style="margin-top:16px"><table class="table"><thead><tr><th>Actividad</th><th>Curso</th><th>Competencias</th><th>Puntos</th><th>Origen</th><th></th></tr></thead><tbody id="activityRows"></tbody></table></div></section>
+
+<section class="page" id="paso8"><div class="sectionhead"><h2>8. Calificaciones</h2><button class="btn primary" onclick="openGrade()">Registrar calificación</button></div><div class="toolbar"><select id="gradeCourse" onchange="renderGrades()"></select><select id="gradePeriod" onchange="renderGrades()"><option>Período 1</option><option>Período 2</option><option>Período 3</option><option>Período 4</option></select></div><div class="notice">Cada grupo de competencias tiene un máximo de <b>100 puntos</b>. ProfeSmart muestra la acumulación y evita que la planificación exceda el máximo.</div><div class="card tablewrap"><table class="table"><thead><tr><th>Estudiante</th><th>Grupo 1</th><th>Grupo 2</th><th>Grupo 3</th><th>Grupo 4</th><th>Situación</th></tr></thead><tbody id="gradeRows"></tbody></table></div></section>
+
+<section class="page" id="paso9"><div class="sectionhead"><h2>9. Recuperación pedagógica</h2><button class="btn primary" onclick="generateRecovery()">🤖 Generar plan de recuperación</button></div><div class="notice warning">Al finalizar el período, ProfeSmart identifica a los estudiantes que no alcanzan <b>70 puntos en cada grupo de competencias</b>, señalando actividades, competencias e indicadores con dificultades.</div><div id="recoveryList"></div><div class="card" style="margin-top:16px"><h3>Regla RP</h3><p>Luego de registrar la recuperación pedagógica, el sistema debe <b>obviar las notas inferiores a 70</b> y continuar las sumatorias siguiendo el registro, tomando en cuenta la calificación de la casilla <b>RP</b>, incluso cuando esa calificación no alcance 70.</p></div></section>
+
+<section class="page" id="ia"><div class="sectionhead"><h2>🤖 ProfeSmart IA</h2></div><div class="card ai"><h2>Tu asistente pedagógico</h2><p>Puede ayudarte a crear actividades, juegos, instrumentos, fichas, informes, reflexiones semanales y planes de recuperación.</p><input id="aiInput" placeholder="Ej.: Diseña una actividad de refuerzo sobre ecosistemas..." onkeydown="if(event.key==='Enter')askAI('aiInput','aiFullResult')"><div id="aiFullResult" style="margin-top:15px"></div></div><div class="grid g3" style="margin-top:16px"><div class="card"><h3>📓 Registro anecdótico IA</h3><p>Genera fichas de seguimiento a partir de observaciones del docente.</p><button class="btn" onclick="alert('En la versión conectada a IA, esta función generará la ficha automáticamente.')">Generar ficha</button></div><div class="card"><h3>📅 Efemérides</h3><p>Recordatorios de fechas relevantes del área y del calendario escolar.</p><button class="btn" onclick="alert('Puedes cargar las efemérides oficiales en la futura base de datos.')">Ver próximas</button></div><div class="card"><h3>💡 Reflexión semanal</h3><p id="reflection">“Enseñar ciencia es sembrar curiosidad para transformar el mundo.”</p><button class="btn" onclick="newReflection()">Nueva reflexión</button></div></div></section>
+
+<section class="page" id="seguimiento"><div class="sectionhead"><h2>📋 Seguimiento docente</h2></div><div class="grid g3"><div class="card"><h3>📝 Informe de actividades</h3><p>Resumen de actividades realizadas por curso y período.</p><button class="btn" onclick="showReport()">Generar resumen</button></div><div class="card"><h3>📊 Progreso académico</h3><p>Visualiza estudiantes en seguimiento y necesidades de recuperación.</p><button class="btn" onclick="go('paso9')">Ver recuperación</button></div><div class="card"><h3>🔔 Alertas</h3><p id="alertCount">Sin alertas críticas.</p></div></div><div id="reportBox"></div></section>
+
+<section class="page" id="boletines"><div class="sectionhead"><h2>📄 Boletines</h2><button class="btn primary" onclick="alert('La generación automática del boletín estará conectada al registro oficial en la siguiente fase.')">Generar boletín</button></div><div class="notice">Este módulo queda preparado para consolidar las sumatorias finales de cada período y del año escolar siguiendo las reglas del registro.</div></section>
+
+<div class="footer">🌱 “Enseñar ciencia es sembrar futuro” · ProfeSmart</div>
 </main>
 </div>
-</body>
-</html>
+
+<div class="modal" id="modal"><div class="modalbox"><button class="btn small" style="float:right" onclick="closeModal()">✕</button><div id="modalContent"></div></div></div>
+
+<script>
+const D={config:{teacher:'',school:'',area:'Ciencias Naturales',year:'2026-2027',periods:4},courses:[],students:[],sequences:[],plans:[],activities:[],attendance:{},grades:{},reminders:['Revisar calificaciones','Subir actividades del tema','Enviar informe de seguimiento'],recovery:[]};
+let state=JSON.parse(localStorage.getItem('profesmart9')||'null')||D;
+const groups=['Grupo 1','Grupo 2','Grupo 3','Grupo 4'];
+function save(){localStorage.setItem('profesmart9',JSON.stringify(state))}
+function $(id){return document.getElementById(id)}
+function esc(s){return String(s||'').replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]))}
+function go(id){document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.navbtn').forEach(x=>x.classList.remove('active'));$(id)?.classList.add('active');document.querySelector(`[data-page="${id}"]`)?.classList.add('active');window.scrollTo(0,0);renderAll()}
+document.querySelectorAll('.navbtn').forEach(b=>b.onclick=()=>go(b.dataset.page));
+function titleFor(id){return ({inicio:['¡Bienvenido a ProfeSmart! 👋','La plataforma para optimizar el trabajo docente en Ciencias Naturales.'],cursos:['Mis cursos','Gestiona tus grados y secciones.'],paso1:['Paso 1 · Configuración','Define los datos base del trabajo docente.'],paso2:['Paso 2 · Cursos','Selecciona los grados y secciones que impartes.'],paso3:['Paso 3 · Estudiantes','Organiza la matrícula de cada curso.'],paso4:['Paso 4 · Secuencias','La base para automatizar la planificación y evaluación.'],paso5:['Paso 5 · Planificación','Organiza las secuencias por período y fechas.'],paso6:['Paso 6 · Asistencia','Registro rápido e inteligente.'],paso7:['Paso 7 · Evaluación','Actividades, instrumentos y distribución de puntos.'],paso8:['Paso 8 · Calificaciones','Seguimiento por los cuatro grupos de competencias.'],paso9:['Paso 9 · Recuperación','Identificación de necesidades y planes de mejora.'],ia:['ProfeSmart IA','Tu asistente pedagógico inteligente.'],seguimiento:['Seguimiento','Informes, alertas y acompañamiento.'],boletines:['Boletines','Consolidación de resultados.']})[id]||['ProfeSmart','']}
+function renderAll(){let p=document.querySelector('.page.active')?.id||'inicio',t=titleFor(p);$('pageTitle').textContent=t[0];$('pageSub').textContent=t[1];renderCourses();renderStudents();renderSequences();renderPlans();renderAttendance();renderActivities();renderGrades();renderRecovery();renderReminders();renderSelectors();renderGradeTabs()}
+function renderSelectors(){['studentCourse','planCourse','attendanceCourse','gradeCourse'].forEach(id=>{let el=$(id);if(!el)return;let v=el.value;el.innerHTML=state.courses.map(c=>`<option value="${c.id}">${c.grade} · ${c.section}</option>`).join('')||'<option value="">Sin cursos</option>';if([...el.options].some(o=>o.value===v))el.value=v})}
+function renderCourses(){let cards=state.courses.map((c,i)=>`<div class="card course"><div class="courseTop">${['🔬','🦋','🌱','🌋','🧬','🪐'][i%6]}</div><div class="courseBody"><b>${c.grade} · ${c.section}</b><p>Ciencias Naturales · ${state.students.filter(s=>s.courseId===c.id).length} estudiantes</p><div style="margin-top:12px"><button class="btn small" onclick="selectCourse('${c.id}')">Gestionar</button> <button class="btn small danger" onclick="deleteCourse('${c.id}')">Eliminar</button></div></div></div>`).join('')||'<div class="card empty">Aún no has creado cursos. Haz clic en “Crear curso”.</div>';
+$('courseList').innerHTML=cards;$('homeCourses').innerHTML=cards||'';
+$('courseConfigList').innerHTML=cards;
+}
+function renderGradeTabs(){$('gradeTabs').innerHTML=['1.º','2.º','3.º','4.º','5.º','6.º'].map(g=>`<button class="tab" onclick="openCourse('${g}')">${g}</button>`).join('')}
+function selectCourse(id){go('paso3');setTimeout(()=>{$('studentCourse').value=id;renderStudents()},50)}
+function deleteCourse(id){if(confirm('¿Eliminar este curso?')){state.courses=state.courses.filter(c=>c.id!==id);state.students=state.students.filter(s=>s.courseId!==id);save();renderAll()}}
+function openModal(html){$('modalContent').innerHTML=html;$('modal').classList.add('show')}
+function closeModal(){$('modal').classList.remove('show')}
+function openCourse(pref=''){openModal(`<h2>Crear curso</h2><div class="form"><div class="row"><div><label>Grado</label><select id="mGrade">${['1.º','2.º','3.º','4.º','5.º','6.º'].map(x=>`<option ${x===pref?'selected':''}>${x}</option>`).join('')}</select></div><div><label>Sección</label><input id="mSection" placeholder="Ej.: A"></div></div><button class="btn primary" onclick="addCourse()">Guardar curso</button></div>`)}
+function addCourse(){let grade=$('mGrade').value,section=$('mSection').value.trim().toUpperCase();if(!section)return alert('Escribe la sección.');state.courses.push({id:crypto.randomUUID(),grade,section});save();closeModal();renderAll()}
+function saveConfig(){state.config.teacher=$('teacherName').value;state.config.school=$('schoolName').value;state.config.area=$('area').value;state.config.year=$('schoolYear').value;state.config.periods=+$('periods').value;save();alert('Configuración guardada.')}
+function openStudent(){if(!state.courses.length)return alert('Primero crea un curso.');openModal(`<h2>Añadir estudiante</h2><div class="form"><label>Nombre completo</label><input id="mStudent" placeholder="Nombre y apellidos"><label>Curso</label><select id="mStudentCourse">${state.courses.map(c=>`<option value="${c.id}">${c.grade} · ${c.section}</option>`).join('')}</select><button class="btn primary" onclick="addStudent()">Guardar estudiante</button></div>`)}
+function addStudent(){let name=$('mStudent').value.trim();if(!name)return alert('Escribe el nombre.');state.students.push({id:crypto.randomUUID(),name,courseId:$('mStudentCourse').value});save();closeModal();renderAll()}
+function addSampleStudents(){if(!state.courses.length){alert('Crea primero un curso.');return}let names=['Ana Pérez','Luis Martínez','Camila Rodríguez','José Santos','María López'];names.forEach(n=>state.students.push({id:crypto.randomUUID(),name:n,courseId:state.courses[0].id}));save();renderAll()}
+function renderStudents(){let course=$('studentCourse')?.value||'',q=($('studentSearch')?.value||'').toLowerCase(),rows=state.students.filter(s=>(!course||s.courseId===course)&&s.name.toLowerCase().includes(q)).map((s,i)=>{let c=state.courses.find(x=>x.id===s.courseId);return `<tr><td>${i+1}</td><td><b>${esc(s.name)}</b></td><td>${c?c.grade+' · '+c.section:'—'}</td><td><span class="pill green">Activo</span></td><td><button class="btn small danger" onclick="delStudent('${s.id}')">Eliminar</button></td></tr>`}).join('')||'<tr><td colspan="5" class="empty">No hay estudiantes registrados.</td></tr>';$('studentRows').innerHTML=rows}
+function delStudent(id){state.students=state.students.filter(s=>s.id!==id);save();renderAll()}
+function openSequence(){openModal(`<h2>Nueva secuencia didáctica</h2><div class="form"><label>Título de la secuencia</label><input id="mSeqTitle" placeholder="Ej.: Los ecosistemas"><div class="row"><div><label>Curso</label><select id="mSeqCourse">${state.courses.map(c=>`<option value="${c.id}">${c.grade} · ${c.section}</option>`).join('')}</select></div><div><label>Cantidad de actividades</label><input id="mSeqActs" type="number" min="1" value="4"></div></div><label>Competencias específicas / componentes curriculares</label><textarea id="mSeqComp" placeholder="Describe o pega la información curricular..."></textarea><label>Indicadores de logro</label><textarea id="mSeqInd" placeholder="Describe o pega los indicadores..."></textarea><button class="btn primary" onclick="addSequence()">Guardar secuencia</button></div>`)}
+function addSequence(){let title=$('mSeqTitle').value.trim();if(!title)return alert('Escribe un título.');state.sequences.push({id:crypto.randomUUID(),title,courseId:$('mSeqCourse').value,acts:+$('mSeqActs').value,comp:$('mSeqComp').value,ind:$('mSeqInd').value});save();closeModal();renderAll()}
+function renderSequences(){$('sequenceList').innerHTML=state.sequences.map(s=>{let c=state.courses.find(x=>x.id===s.courseId);return `<div class="card"><span class="pill purple">Secuencia</span><h3>${esc(s.title)}</h3><p>${c?c.grade+' · '+c.section:'Sin curso'} · ${s.acts} actividades</p><p style="color:var(--muted)">${esc(s.comp||'Sin componentes registrados').slice(0,160)}</p><button class="btn small" onclick="autoActivities('${s.id}')">⚡ Crear actividades automáticamente</button></div>`}).join('')||'<div class="card empty">Aún no hay secuencias.</div>'}
+function autoActivities(id){let s=state.sequences.find(x=>x.id===id);if(!s)return;for(let i=1;i<=s.acts;i++)state.activities.push({id:crypto.randomUUID(),name:`${s.title} · Actividad ${i}`,courseId:s.courseId,source:'Secuencia',dist:[25,25,25,25],indicator:s.ind});save();renderAll();alert(`Se crearon ${s.acts} actividades de ejemplo. Ahora puedes ajustar sus instrumentos y distribución de puntos.`)}
+function openPlan(){openModal(`<h2>Planificar secuencia</h2><div class="form"><label>Secuencia</label><select id="mPlanSeq">${state.sequences.map(s=>`<option value="${s.id}">${esc(s.title)}</option>`).join('')}</select><div class="row"><div><label>Período</label><select id="mPlanPeriod"><option>Período 1</option><option>Período 2</option><option>Período 3</option><option>Período 4</option></select></div><div><label>Fecha de inicio</label><input id="mPlanStart" type="date"></div></div><label>Fecha final</label><input id="mPlanEnd" type="date"><button class="btn primary" onclick="addPlan()">Guardar planificación</button></div>`)}
+function addPlan(){let seq=state.sequences.find(s=>s.id===$('mPlanSeq').value);if(!seq)return alert('Primero crea una secuencia.');state.plans.push({id:crypto.randomUUID(),seqId:seq.id,courseId:seq.courseId,period:$('mPlanPeriod').value,start:$('mPlanStart').value,end:$('mPlanEnd').value});save();closeModal();renderAll()}
+function renderPlans(){let p=$('periodSelect')?.value||'Período 1',course=$('planCourse')?.value||'',a=state.plans.filter(x=>x.period===p&&(!course||x.courseId===course));$('planList').innerHTML=a.map(x=>{let s=state.sequences.find(z=>z.id===x.seqId);return `<div class="card"><b>${esc(s?.title||'Secuencia')}</b><p>${x.start||'Sin fecha'} → ${x.end||'Sin fecha'} · ${x.period}</p></div>`}).join('')||'<div class="card empty">No hay secuencias planificadas para este período.</div>'}
+function attKey(c,d){return c+'_'+d}
+function renderAttendance(){let c=$('attendanceCourse')?.value||'',d=$('attendanceDate')?.value||new Date().toISOString().slice(0,10);if($('attendanceDate')&&!$('attendanceDate').value)$('attendanceDate').value=d;let key=attKey(c,d),rec=state.attendance[key]||{};let ss=state.students.filter(s=>s.courseId===c);$('attendanceRows').innerHTML=ss.map(s=>{let v=rec[s.id]||'P';return `<tr><td><b>${esc(s.name)}</b></td>${[['P','Presente'],['A','Ausente'],['T','Tardanza'],['J','Justificada']].map(([k,l])=>`<td><input type="radio" name="a${s.id}" ${v===k?'checked':''} onchange="setAtt('${s.id}','${k}')"> ${l}</td>`).join('')}<td>${attendancePercent(s.id,c)}%</td></tr>`}).join('')||'<tr><td colspan="6" class="empty">No hay estudiantes en este curso.</td></tr>';renderAttendanceAlerts(c)}
+function setAtt(id,v){let c=$('attendanceCourse').value,d=$('attendanceDate').value,key=attKey(c,d);state.attendance[key]=state.attendance[key]||{};state.attendance[key][id]=v}
+function markAllPresent(){let c=$('attendanceCourse').value,d=$('attendanceDate').value,key=attKey(c,d);state.attendance[key]=state.attendance[key]||{};state.students.filter(s=>s.courseId===c).forEach(s=>state.attendance[key][s.id]='P');renderAttendance()}
+function saveAttendance(){save();renderAttendance();alert('Asistencia guardada.')}
+function attendancePercent(studentId,courseId){let vals=[];Object.entries(state.attendance).forEach(([k,v])=>{if(k.startsWith(courseId+'_')&&v[studentId])vals.push(v[studentId])});if(!vals.length)return 100;return Math.round(vals.filter(x=>x==='P'||x==='T'||x==='J').length/vals.length*100)}
+function consecutiveAbsences(studentId,courseId){let days=Object.entries(state.attendance).filter(([k,v])=>k.startsWith(courseId+'_')&&v[studentId]).sort(([a],[b])=>a.localeCompare(b)).map(([,v])=>v[studentId]);let n=0;for(let i=days.length-1;i>=0&&days[i]==='A';i--)n++;return n}
+function renderAttendanceAlerts(c){let a=state.students.filter(s=>s.courseId===c&&consecutiveAbsences(s.id,c)>=3);$('attendanceAlerts').innerHTML=a.map(s=>`<div class="notice dangerbox"><b>⚠ Alerta de asistencia: ${esc(s.name)}</b><br>Ha acumulado ${consecutiveAbsences(s.id,c)} faltas consecutivas. <button class="btn small" onclick="letter('${s.id}')">Generar carta a Orientación y Psicología</button></div>`).join('')}
+function letter(id){let s=state.students.find(x=>x.id===id),c=state.courses.find(x=>x.id===s.courseId);alert(`CARTA DE NOTIFICACIÓN\n\nA la Unidad de Orientación y Psicología:\n\nSe informa que el/la estudiante ${s.name}, del ${c.grade} · ${c.section}, ha acumulado ${consecutiveAbsences(s.id,s.courseId)} faltas consecutivas. Se solicita comunicación con los padres o tutores para informar la situación y dar seguimiento.\n\nProfeSmart`)}
+function openActivity(){if(!state.courses.length)return alert('Primero crea un curso.');openModal(`<h2>Crear actividad o instrumento</h2><div class="form"><label>Nombre de la actividad</label><input id="mActName" placeholder="Ej.: Proyecto de ecosistemas"><label>Curso</label><select id="mActCourse">${state.courses.map(c=>`<option value="${c.id}">${c.grade} · ${c.section}</option>`).join('')}</select><label>Indicador de logro / criterio</label><textarea id="mActInd" placeholder="Describe qué se evaluará..."></textarea><div class="row">${groups.map((g,i)=>`<div><label>${g} · puntos</label><input id="mG${i}" type="number" min="0" max="100" value="0"></div>`).join('')}</div><label>Origen</label><select id="mActSource"><option>Actividad adicional del docente</option><option>Evaluación</option><option>Corrección de cuaderno</option><option>Proyecto</option><option>Otro</option></select><button class="btn primary" onclick="addActivity()">Guardar actividad</button></div>`)}
+function addActivity(){let name=$('mActName').value.trim();if(!name)return alert('Escribe un nombre.');let dist=groups.map((_,i)=>+($('mG'+i).value||0));if(dist.reduce((a,b)=>a+b,0)<=0)return alert('Asigna puntos al menos a un grupo de competencias.');state.activities.push({id:crypto.randomUUID(),name,courseId:$('mActCourse').value,indicator:$('mActInd').value,dist,source:$('mActSource').value});save();closeModal();renderAll()}
+function renderActivities(){let totals=groups.map((g,i)=>state.activities.reduce((a,x)=>a+(x.dist?.[i]||0),0));$('competencySummary').innerHTML=groups.map((g,i)=>`<div class="card"><b>${g}</b><div class="num">${totals[i]}/100</div><div class="progress"><div style="width:${Math.min(totals[i],100)}%"></div></div><small>${totals[i]>100?'⚠ Excede 100 puntos':'Planificado'}</small></div>`).join('');$('activityRows').innerHTML=state.activities.map(a=>{let c=state.courses.find(x=>x.id===a.courseId);return `<tr><td><b>${esc(a.name)}</b><br><small>${esc(a.indicator||'Sin indicador')}</small></td><td>${c?c.grade+' · '+c.section:'—'}</td><td>${a.dist.map((v,i)=>v?`<span class="pill blue">${groups[i]}: ${v}</span>`:'').join(' ')}</td><td>${a.dist.reduce((x,y)=>x+y,0)}</td><td>${esc(a.source)}</td><td><button class="btn small danger" onclick="delActivity('${a.id}')">Eliminar</button></td></tr>`}).join('')||'<tr><td colspan="6" class="empty">No hay actividades creadas.</td></tr>'}
+function delActivity(id){state.activities=state.activities.filter(a=>a.id!==id);save();renderAll()}
+function openGrade(){if(!state.students.length)return alert('Primero registra estudiantes.');openModal(`<h2>Registrar calificación</h2><div class="form"><label>Estudiante</label><select id="mGradeStudent">${state.students.map(s=>`<option value="${s.id}">${esc(s.name)}</option>`).join('')}</select><label>Actividad</label><select id="mGradeActivity">${state.activities.map(a=>`<option value="${a.id}">${esc(a.name)}</option>`).join('')}</select><label>Período</label><select id="mGradePeriod"><option>Período 1</option><option>Período 2</option><option>Período 3</option><option>Período 4</option></select><div class="row">${groups.map((g,i)=>`<div><label>${g}</label><input id="mGrade${i}" type="number" min="0" max="100" value="0"></div>`).join('')}</div><button class="btn primary" onclick="addGrade()">Guardar calificación</button></div>`)}
+function addGrade(){let sid=$('mGradeStudent').value,act=$('mGradeActivity').value,period=$('mGradePeriod').value,vals=groups.map((_,i)=>+($('mGrade'+i).value||0));state.grades[sid]=state.grades[sid]||[];state.grades[sid].push({id:crypto.randomUUID(),act,period,vals});save();closeModal();renderAll()}
+function renderGrades(){let c=$('gradeCourse')?.value||'',p=$('gradePeriod')?.value||'Período 1';let ss=state.students.filter(s=>s.courseId===c);$('gradeRows').innerHTML=ss.map(s=>{let gs=(state.grades[s.id]||[]).filter(x=>x.period===p),tot=groups.map((_,i)=>gs.reduce((a,x)=>a+(x.vals[i]||0),0));let weak=tot.some(x=>x<70);return `<tr><td><b>${esc(s.name)}</b></td>${tot.map(x=>`<td><span class="pill ${x>=70?'green':'red'}">${x}</span></td>`).join('')}<td><span class="pill ${weak?'orange':'green'}">${weak?'Requiere seguimiento':'Logrado'}</span></td></tr>`}).join('')||'<tr><td colspan="6" class="empty">No hay estudiantes.</td></tr>'}
+function generateRecovery(){let p=$('gradePeriod')?.value||'Período 1';state.recovery=[];state.students.forEach(s=>{let gs=(state.grades[s.id]||[]).filter(x=>x.period===p),tot=groups.map((_,i)=>gs.reduce((a,x)=>a+(x.vals[i]||0),0));let weak=tot.map((x,i)=>x<70?i:null).filter(x=>x!==null);if(weak.length){let acts=gs.map(g=>state.activities.find(a=>a.id===g.act)).filter(Boolean);state.recovery.push({studentId:s.id,period:p,weak,tot,activities:acts.map(a=>a.name),indicators:acts.map(a=>a.indicator).filter(Boolean)})}});save();renderRecovery();alert(`Se identificaron ${state.recovery.length} estudiantes con necesidades de recuperación.`)}
+function renderRecovery(){$('recoveryList').innerHTML=state.recovery.map(r=>{let s=state.students.find(x=>x.id===r.studentId);return `<div class="card"><h3>🧠 ${esc(s?.name||'Estudiante')}</h3><p><b>Grupos por debajo de 70:</b> ${r.weak.map(i=>groups[i]+' ('+r.tot[i]+')').join(', ')}</p><p><b>Actividades relacionadas:</b> ${esc(r.activities.join(', ')||'Por identificar')}</p><p><b>Indicadores:</b> ${esc(r.indicators.join(' · ')||'Por analizar')}</p><button class="btn primary small" onclick="recoveryPlan('${r.studentId}')">🤖 Crear plan de recuperación</button></div>`}).join('')||'<div class="card empty">Aún no se han detectado estudiantes para recuperación. Registra calificaciones y pulsa “Generar plan”.</div>'}
+function recoveryPlan(id){let r=state.recovery.find(x=>x.studentId===id),s=state.students.find(x=>x.id===id);alert(`PLAN DE RECUPERACIÓN PEDAGÓGICA\n\nEstudiante: ${s.name}\nPeríodo: ${r.period}\nNecesidades: ${r.weak.map(i=>groups[i]).join(', ')}\n\n1. Reforzar los indicadores identificados.\n2. Proponer actividades prácticas y guiadas.\n3. Aplicar un instrumento específico.\n4. Registrar la calificación RP.\n5. Para la consolidación, aplicar la regla del registro: obviar notas inferiores a 70 cuando corresponda y tomar en cuenta la casilla RP, incluso si RP es inferior a 70.`)}
+function renderReminders(){$('reminders').innerHTML=(state.reminders||[]).map(x=>`<p>• ${esc(x)}</p>`).join('')}
+function addReminder(){let x=prompt('Nuevo recordatorio:');if(x){state.reminders.push(x);save();renderReminders()}}
+function askAI(input,result){let q=$(input).value.trim();if(!q)return;$(result).innerHTML=`<div class="notice"><b>ProfeSmart IA (modo demostración):</b><br>He recibido tu solicitud: “${esc(q)}”. En la siguiente fase conectaremos este módulo con un servicio de IA para generar respuestas reales, actividades, instrumentos, informes y planes personalizados.</div>`}
+function newReflection(){let a=['“La curiosidad es el primer paso de todo descubrimiento.”','“Aprender ciencia es aprender a mirar el mundo con nuevas preguntas.”','“Cada experimento es una oportunidad para pensar, crear y descubrir.”','“La educación transforma cuando conecta lo aprendido con la vida.”'];$('reflection').textContent=a[Math.floor(Math.random()*a.length)]}
+function showReport(){let total=state.activities.length,seq=state.sequences.length,st=state.students.length;$('reportBox').innerHTML=`<div class="card" style="margin-top:16px"><h3>Informe de actividades</h3><p>Secuencias registradas: <b>${seq}</b></p><p>Actividades registradas: <b>${total}</b></p><p>Estudiantes en la plataforma: <b>${st}</b></p><p>Este informe crecerá automáticamente con los datos reales de cada período.</p></div>`}
+document.addEventListener('DOMContentLoaded',()=>{let today=new Date().toISOString().slice(0,10);$('attendanceDate').value=today;['teacherName','schoolName','schoolYear'].forEach(id=>$(id).value=state.config[id==='teacherName'?'teacher':id==='schoolName'?'school':'year']||'');$('periods').value=state.config.periods||4;renderAll()})
+</script>
+</body></html>
