@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ProfeSmart</title>
+<style>
+:root{--blue:#2563eb;--bg:#f5f7fb;--dark:#111827;--card:#fff;--muted:#667085}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:#172033}
+.app{display:flex;min-height:100vh}aside{width:255px;background:var(--dark);color:white;padding:24px 15px;position:fixed;height:100vh}
+.brand{font-size:25px;font-weight:800;margin-bottom:32px}.brand small{display:block;font-size:12px;color:#aab4c5;margin-top:5px}
+button{cursor:pointer}.nav button{width:100%;border:0;background:transparent;color:#d1d5db;text-align:left;padding:12px;border-radius:9px;margin:3px 0;font-size:15px}
+.nav button:hover,.nav button.active{background:#243044;color:#fff}.label{font-size:11px;color:#94a3b8;text-transform:uppercase;margin:20px 8px 8px}
+main{margin-left:255px;width:calc(100% - 255px);padding:30px}.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px}
+h1{margin:0;font-size:29px}.sub{color:var(--muted);margin-top:7px}.page{display:none}.page.active{display:block}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.card{background:#fff;border:1px solid #e5e7eb;border-radius:15px;padding:20px}
+.metric{font-size:28px;font-weight:800;margin-top:8px}.muted{color:var(--muted);font-size:14px}.section{display:flex;justify-content:space-between;align-items:center;margin:28px 0 14px}
+.btn{background:var(--blue);color:#fff;border:0;border-radius:9px;padding:11px 15px;font-weight:bold}.box{background:#fff;border:1px dashed #cbd5e1;border-radius:15px;padding:50px 25px;text-align:center;color:var(--muted)}
+.ai{background:linear-gradient(135deg,#172554,#312e81);color:white;border-radius:17px;padding:25px}.ai input{width:100%;padding:13px;border-radius:9px;border:0;margin-top:10px}
+@media(max-width:850px){aside{width:70px;padding:18px 8px}.brand{font-size:0}.brand:before{content:'🔬';font-size:25px}.nav button{font-size:19px;text-align:center}.nav button span,.label{display:none}main{margin-left:70px;width:calc(100% - 70px);padding:20px}.grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:600px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside>
+<div class="brand">🔬 ProfeSmart<small>Trabajo docente inteligente</small></div>
+<div class="label">Principal</div>
+<div class="nav">
+<button class="active" data-page="inicio">🏠 <span>Inicio</span></button>
+<button data-page="cursos">👥 <span>Mis cursos</span></button>
+<button data-page="planificacion">📅 <span>Planificación</span></button>
+<button data-page="secuencias">📚 <span>Secuencias</span></button>
+</div>
+<div class="label">Gestión académica</div>
+<div class="nav">
+<button data-page="asistencia">✅ <span>Asistencia</span></button>
+<button data-page="evaluacion">📝 <span>Evaluación</span></button>
+<button data-page="calificaciones">📊 <span>Calificaciones</span></button>
+<button data-page="recuperacion">🔄 <span>Recuperación</span></button>
+<button data-page="boletines">📄 <span>Boletines</span></button>
+</div>
+<div class="label">Inteligencia</div>
+<div class="nav">
+<button data-page="ia">🤖 <span>ProfeSmart IA</span></button>
+<button data-page="seguimiento">📋 <span>Seguimiento</span></button>
+</div>
+</aside>
+<main>
+<div class="top"><div><h1 id="title">¡Bienvenido a ProfeSmart! 👋</h1><div class="sub" id="subtitle">La plataforma para optimizar el trabajo docente en Ciencias Naturales.</div></div></div>
+<section id="inicio" class="page active">
+<div class="grid">
+<div class="card"><div class="muted">Cursos activos</div><div class="metric">6</div><div class="muted">Ciencias Naturales</div></div>
+<div class="card"><div class="muted">Estudiantes</div><div class="metric">0</div><div class="muted">Próximamente</div></div>
+<div class="card"><div class="muted">Secuencias</div><div class="metric">—</div><div class="muted">Biblioteca curricular</div></div>
+<div class="card"><div class="muted">Actividades</div><div class="metric">0</div><div class="muted">Sin pendientes</div></div>
+</div>
+<div class="section"><h2>Continuar trabajando</h2><button class="btn" onclick="showPage('planificacion')">Ir a planificación</button></div>
+<div class="ai"><h2>🤖 ProfeSmart IA</h2><p>Tu asistente para crear actividades, juegos, instrumentos, refuerzos y planes de mejora.</p><input placeholder="Ejemplo: Crea una actividad de refuerzo para esta secuencia..."></div>
+</section>
+<section id="cursos" class="page"><div class="section"><h2>👥 Mis cursos</h2></div><div class="box"><h3>Los 6 grados de Ciencias Naturales</h3><p>1.º Tierra y Universo · 2.º Ciencias de la Vida · 3.º Ciencias Físicas · 4.º Biología · 5.º Química · 6.º Física</p></div></section>
+<section id="planificacion" class="page"><div class="section"><h2>📅 Planificación</h2></div><div class="box"><h3>Planificación inteligente</h3><p>Se conectará con las secuencias, adecuación curricular y períodos.</p></div></section>
+<section id="secuencias" class="page"><div class="section"><h2>📚 Secuencias didácticas</h2></div><div class="box"><h3>Biblioteca pedagógica</h3><p>Aquí organizaremos competencias, indicadores, contenidos, actividades e instrumentos.</p></div></section>
+<section id="asistencia" class="page"><div class="section"><h2>✅ Asistencia</h2></div><div class="box"><h3>Todos presentes por defecto 🟢</h3><p>El docente solo marcará ausencias, tardanzas, excusas o retiros.</p></div></section>
+<section id="evaluacion" class="page"><div class="section"><h2>📝 Evaluación</h2></div><div class="box"><h3>Motor de evaluación</h3><p>Actividades → instrumento → criterios → competencias → indicadores → grupos de competencias.</p></div></section>
+<section id="calificaciones" class="page"><div class="section"><h2>📊 Calificaciones</h2></div><div class="box"><h3>Registro automático</h3><p>Las notas seguirán las reglas del registro de grado.</p></div></section>
+<section id="recuperacion" class="page"><div class="section"><h2>🔄 Recuperación pedagógica</h2></div><div class="box"><h3>Planes de mejora inteligentes</h3><p>ProfeSmart detectará dificultades por actividades, competencias e indicadores.</p></div></section>
+<section id="boletines" class="page"><div class="section"><h2>📄 Boletines</h2></div><div class="box"><h3>Boletines automáticos</h3><p>Se generarán a partir de los resultados y las reglas oficiales del registro.</p></div></section>
+<section id="ia" class="page"><div class="ai"><h2>🤖 ProfeSmart IA</h2><p>Generará actividades, juegos, exámenes, instrumentos, refuerzos, informes y más.</p><input placeholder="¿Qué quieres crear?"></div></section>
+<section id="seguimiento" class="page"><div class="section"><h2>📋 Seguimiento</h2></div><div class="box"><h3>Registro anecdótico e informes</h3><p>Aquí construiremos el seguimiento individual y los informes automáticos.</p></div></section>
+</main></div>
+<script>
+const info={inicio:['¡Bienvenido a ProfeSmart! 👋','La plataforma para optimizar el trabajo docente en Ciencias Naturales.'],cursos:['Mis cursos','Gestiona cursos, secciones y estudiantes.'],planificacion:['Planificación','Organiza períodos, fechas y secuencias.'],secuencias:['Secuencias didácticas','La base pedagógica de ProfeSmart.'],asistencia:['Asistencia','Rápida, intuitiva y automatizada.'],evaluacion:['Evaluación','Actividades, instrumentos, competencias e indicadores.'],calificaciones:['Calificaciones','Resultados organizados automáticamente.'],recuperacion:['Recuperación pedagógica','Detecta dificultades y crea planes de mejora.'],boletines:['Boletines','Resultados y reportes automáticos.'],ia:['ProfeSmart IA','Tu asistente inteligente para Ciencias Naturales.'],seguimiento:['Seguimiento','Registros, fichas e informes.']};
+function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelector(`[data-page="${id}"]`)?.classList.add('active');title.textContent=info[id][0];subtitle.textContent=info[id][1]}
+document.querySelectorAll('.nav button').forEach(b=>b.onclick=()=>showPage(b.dataset.page));
+</script>
+</body></html>
